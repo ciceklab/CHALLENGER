@@ -71,7 +71,6 @@ Note that the provided environment yml file is for Linux systems. For MacOS user
 
 
 ## Instructions Manual for CHALLENGER
-Important notice: Please call the CHALLENGER_call.py script from the scripts directory.
 
 ### Required Arguments
 
