@@ -90,7 +90,7 @@ Note that the provided environment yml file is for Linux systems. For MacOS user
 - Path to the tokenizer configuration file (.json).
 
 #### -w, --weight
-- Path to the fine-tuned model weight directory or checkpoint folder. The fine-tuned model weights are in the following paths.
+- Path to the fine-tuned model weight directory or checkpoint folder. You can download the fine-tuned CHALLENGER models from <a href="https://drive.google.com/file/d/1z7n0O9WO60iw2xCXfsG8NRGRht1vYe0z/view?usp=sharing">here</a>. It contains the following models.
     1) models/CHALLENGER-LR
     2) models/CHALLENGER-EXP
     3) models/CHALLENGER-GENE/<gene_name>
