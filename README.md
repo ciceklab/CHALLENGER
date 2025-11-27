@@ -7,8 +7,7 @@
 
 
 
-> CHALLENGER is a RoBERTa-based deep learning tool designed for predicting copy number variations (CNVs) in challenging genomic regions using short-read whole-genome sequencing (WGS) data.
-
+> CHALLENGER is a RoBERTa-based deep learning tool designed for predicting copy number variations (CNVs) in challenging genomic regions using short-read whole-genome sequencing (WGS) data. See the <a href="https://www.biorxiv.org/content/10.1101/2025.11.23.690083v1">preprint</a> for more information.
 
 > The repository with processed samples, ground truth data, and CNV predictions for all samples to reproduce the analyses in the paper can be found here : <a href="https://zenodo.org/records/17593221" target="_blank">**CHALLENGER results reproduction**</a>
 
@@ -169,10 +168,6 @@ $ source challenger_call.sh
 
 
 <img src="./example_output.png" style="width: 40%;"   class="center">
-
----
-
-## Citations
 
 ---
 
