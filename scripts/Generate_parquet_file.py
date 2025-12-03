@@ -62,6 +62,7 @@ parser = argparse.ArgumentParser(description="Generates Parquet File")
 
 required_args = parser.add_argument_group('Required Arguments')
 
+required_args.add_argument("-l", "--label", help="Path to the groundtruth label (Optional)")
 required_args.add_argument("-i", "--input", help="Path to the input directory containing *_W50.txt files.", required=True)
 required_args.add_argument("-g", "--gene-lookup", help="Path to the gene index file (.npy).", required=True)
 required_args.add_argument("-t", "--target-gene-regions", help="Path to the target gene regions TXT file.", required=True)
@@ -83,10 +84,13 @@ GENE_LOOKUP = np.load(args.gene_lookup,allow_pickle='TRUE').item()
 GENE_REGION_INFO = pd.read_csv(args.target_gene_regions,sep="\t")
 GENE_REGION_INFO = GENE_REGION_INFO.rename(columns={"gene_name":"GeneName", "seqname": "Chr", "start": "gene_start", "end":"gene_end"})
 GENE_REGION_INFO["centerLoc"] = ((GENE_REGION_INFO["gene_start"]+GENE_REGION_INFO["gene_end"])/2).astype(int)
+LABELS_INFO = None
 
-result_df = pd.DataFrame(columns=['sample_name','gene_ind',"gene_name",'chr', 'start', 'end', 'read_depth', ]) 
+result_df = pd.DataFrame(columns=['sample_name','gene_ind',"gene_name",'chr', 'start', 'end', 'read_depth', 'label', ]) 
 
-        
+if(args.label!=None):
+    LABELS_INFO = pd.read_csv(args.label,sep="\t")
+       
     
 def find_samples(directory):
     samples = []
@@ -120,6 +124,9 @@ for sample_name in tqdm(TARGET_SAMPLES):
     readdepths_data = []
     wgscalls_data = []
     
+    if(args.label!=None):
+        gtcalls["label"] = gtcalls.merge(LABELS_INFO[["gene_name", "seqname", "start", "end", sample_name]],left_on=["GeneName","Chr","gene_start","gene_end"], right_on=["gene_name","seqname","start","end"],how="left")[sample_name]
+
     gtcalls = gtcalls.rename(columns={'GeneName': 'gene_name',
                              'Chr': 'chr',
                              'Start': 'start',
@@ -128,9 +135,6 @@ for sample_name in tqdm(TARGET_SAMPLES):
 
     chrom_filter = ((gtcalls['chr']!="chrX") & (gtcalls['chr']!="chrY"))
     gtcalls = gtcalls.loc[chrom_filter].reset_index(drop=True)
-
-    #gene_filter = (gtcalls["gene_name"].apply(lambda x : x in CHALLENGING_GENES)) #NOTE
-    #gtcalls = gtcalls.loc[gene_filter].reset_index(drop=True)
 
     temp_readdepths = gtcalls["ReadList"]
 
@@ -156,6 +160,9 @@ for sample_name in tqdm(TARGET_SAMPLES):
     gtcalls = gtcalls.drop(columns=['gene_start','gene_end','centerLoc', 'ReadList', 'center_ind'])
     #result_df = result_df.append(gtcalls, ignore_index=True)
     result_df = pd.concat([result_df, gtcalls], ignore_index=True)
-            
-result_df[["sample_name",'gene_ind',"gene_name",'chr', 'start', 'end', 'read_depth' ]].to_parquet(os.path.join(args.output_dict,args.cohort_name+".parquet"),engine='pyarrow')
+    
+if(args.label==None):
+    result_df[["sample_name",'gene_ind',"gene_name",'chr', 'start', 'end', 'read_depth' ]].to_parquet(os.path.join(args.output_dict,args.cohort_name+".parquet"),engine='pyarrow')
+else:
+    result_df[["sample_name",'gene_ind',"gene_name",'chr', 'start', 'end', 'read_depth','label' ]].to_parquet(os.path.join(args.output_dict,args.cohort_name+".parquet"),engine='pyarrow')
 pool.close()

@@ -380,7 +380,7 @@ dependencies:
   - zlib=1.2.13=h4ab18f5_6
   - zstd=1.5.5=hc292b87_2
   - pip:
-      - accelerate==0.33.0
+      - accelerate==0.34.2
       - hyper-connections==0.2.1
       - local-attention==1.11.2
       - sympy==1.13.1
