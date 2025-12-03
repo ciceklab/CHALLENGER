@@ -187,14 +187,6 @@ class CHALLENGER_roberta_embeddings(RobertaEmbeddings):
         gene_embeds = gene_embeds.unsqueeze(1)
         gene_embeds = gene_embeds.expand(gene_embeds.shape[0],input_shape[1],gene_embeds.shape[2])
         
-        """
-        #BASELINE_COVERAGES - 2)Multiply By Gene Embedding
-        #### MY_UPDATE
-        if(self.baseline_coverages_lookup_tensor!=None):
-            baseline_coverages = self.baseline_coverages_lookup_tensor[gene_ids].unsqueeze(2).expand(gene_embeds.shape[0], gene_embeds.shape[1], gene_embeds.shape[2]) 
-            gene_embeds = gene_embeds*baseline_coverages
-        ####
-        """
         
         embeddings += gene_embeds
         #####
@@ -209,14 +201,6 @@ class CHALLENGER_roberta_embeddings(RobertaEmbeddings):
             position_embeddings = self.position_embeddings(position_ids)
             embeddings += position_embeddings
         
-        """
-        #BASELINE_COVERAGES - 3)Multiply By Final Embedding
-        #### MY_UPDATE
-        if(self.baseline_coverages_lookup_tensor!=None):
-            baseline_coverages = self.baseline_coverages_lookup_tensor[gene_ids].unsqueeze(2).expand(embeddings.shape[0], embeddings.shape[1], embeddings.shape[2]) 
-            embeddings = embeddings*baseline_coverages
-        ####
-        """
         
         
         embeddings = self.LayerNorm(embeddings)
