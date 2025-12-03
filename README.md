@@ -52,7 +52,11 @@ Mehmet Alper Yilmaz, Ahmet Arda Ceylan, A. Ercument Cicek
 
 - CHALLENGER is a python3 script and it is easy to run after the required packages are installed.
 
+- Please clone the repository using Git LFS:
+  > git lfs clone https://github.com/ciceklab/CHALLENGER.git
+
 - The latest fine-tuned CHALLENGER models can be downloaded from <a href="https://drive.google.com/file/d/1z7n0O9WO60iw2xCXfsG8NRGRht1vYe0z/view?usp=sharing">here</a>
+
 
 ### Requirements
 
