@@ -52,7 +52,7 @@ Mehmet Alper Yilmaz, Ahmet Arda Ceylan, A. Ercument Cicek
   - Output file of CHALLENGER
 - [Instructions Manual for Fine-Tuning CHALLENGER](#instructions-manual-for-fine-tuning-challenger)
   - Required Arguments (Fine-Tuning)
-  - Optional Arguments (Fine-Tuning)(#optional-arguments-fine-tuning)
+  - Optional Arguments (Fine-Tuning)
 - [Fine-Tune Example](#fine-tune-example)
   - Step-2: Preprocessing for Fine-Tuning
   - Step-3: Run Fine-Tuning
