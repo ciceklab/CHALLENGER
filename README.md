@@ -55,7 +55,7 @@ Mehmet Alper Yilmaz, Ahmet Arda Ceylan, A. Ercument Cicek
   - Optional Arguments (Fine-Tuning)
 - [Fine-Tune Example](#fine-tune-example)
   - Step-2: Preprocessing for Fine-Tuning
-  - Step-3: Run Fine-Tuning
+  - Step-3: Start Fine-Tuning
   - Model Weight Output Directory
 - [License](#license)
 ---
