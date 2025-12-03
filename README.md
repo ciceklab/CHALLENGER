@@ -252,7 +252,7 @@ Important notice: Please call the CHALLENGER_FT.py script from the scripts direc
 $ source preprocess_samples_FT.sh
 ```
 
-### Step-3: Start CHALLENGER Fine-Tuning script using the data obtained in Step-2
+### Step-3: Start CHALLENGER Fine-Tuning using the data obtained in Step-2
 
 - Here, we demonstrate an example to fine-tune CHALLENGER on gpu device 0.
 - Please run the following script:
