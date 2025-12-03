@@ -39,13 +39,25 @@ Mehmet Alper Yilmaz, Ahmet Arda Ceylan, A. Ercument Cicek
 > Warning: Please note that CHALLENGER software is completely free for academic usage. However it is licenced for commercial usage. Please first refer to the [License](#license) section for more info.
 
 - [Installation](#installation)
+  - Requirements
 - [Features](#features)
-- [Instructions Manual](#instructions-manual)
-- [Usage Examples](#usage-examples)
-- [Citations](#citations)
+- [Instructions Manual for CHALLENGER](#instructions-manual-for-challenger)
+  - Required Arguments
+  - Optional Arguments
+- [Usage Example](#usage-example)
+  - Step-0: Install conda package management
+  - Step-1: Set Up your environment
+  - Step-2: Run the preprocessing script
+  - Step-3: Run CHALLENGER
+  - Output file of CHALLENGER
+- [Instructions Manual for Fine-Tuning CHALLENGER](#instructions-manual-for-fine-tuning-challenger)
+  - Required Arguments (Fine-Tuning)
+  - Optional Arguments (Fine-Tuning)(#optional-arguments-fine-tuning)
+- [Fine-Tune Example](#fine-tune-example)
+  - Step-2: Preprocessing for Fine-Tuning
+  - Step-3: Run Fine-Tuning
+  - Model Weight Output Directory
 - [License](#license)
-
-
 ---
 
 ## Installation
