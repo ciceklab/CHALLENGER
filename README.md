@@ -7,7 +7,7 @@
 
 
 
-> CHALLENGER is a RoBERTa-based deep learning tool designed for predicting copy number variations (CNVs) in challenging genomic regions using short-read whole-genome sequencing (WGS) data.
+> CHALLENGER is a RoBERTa-based deep learning tool designed for predicting copy number variations (CNVs) in challenging genomic regions using short-read whole-genome sequencing (WGS) data. See the <a href="https://www.biorxiv.org/content/10.1101/2025.11.23.690083v1">preprint</a> for more information.
 
 
 > The repository with processed samples, ground truth data, and CNV predictions for all samples to reproduce the analyses in the paper can be found here : <a href="https://zenodo.org/records/17593221" target="_blank">**CHALLENGER results reproduction**</a>
@@ -52,6 +52,8 @@ Mehmet Alper Yilmaz, Ahmet Arda Ceylan, A. Ercument Cicek
 
 - CHALLENGER is a python3 script and it is easy to run after the required packages are installed.
 
+- The latest fine-tuned CHALLENGER models can be downloaded from <a href="https://drive.google.com/file/d/1z7n0O9WO60iw2xCXfsG8NRGRht1vYe0z/view?usp=sharing">here</a>
+
 ### Requirements
 
 For easy requirement handling, you can use CHALLENGER_environment.yml files to initialize conda environment with requirements installed:
@@ -90,7 +92,7 @@ Important notice: Please call the CHALLENGER_call.py script from the scripts dir
 - Path to the tokenizer configuration file (.json).
 
 #### -w, --weight
-- Path to the fine-tuned model weight directory or checkpoint folder. The fine-tuned model weights are in the following paths.
+- Path to the fine-tuned model weight directory or checkpoint folder. You can download the fine-tuned CHALLENGER models from <a href="https://drive.google.com/file/d/1z7n0O9WO60iw2xCXfsG8NRGRht1vYe0z/view?usp=sharing">here</a>. It contains the following models:
     1) models/CHALLENGER-LR
     2) models/CHALLENGER-EXP
     3) models/CHALLENGER-GENE/<gene_name>
@@ -191,7 +193,7 @@ Important notice: Please call the CHALLENGER_FT.py script from the scripts direc
 - Path to the tokenizer configuration file (.json).
 
 #### -w, --init-weight
-- Path to the initial model weight directory or checkpoint folder. The available initial weights are in the following paths.
+- Path to the initial model weight directory or checkpoint folder. You can download the fine-tuned CHALLENGER models from <a href="https://drive.google.com/file/d/1z7n0O9WO60iw2xCXfsG8NRGRht1vYe0z/view?usp=sharing">here</a>. It contains the following models:
     1) models/CHALLENGER-LR
     2) models/CHALLENGER-EXP
     3) models/CHALLENGER-GENE/<gene_name>
@@ -243,7 +245,7 @@ $ source preprocess_samples_FT.sh
 $ source challenger_FT.sh
 ```
 
-### Output file of CHALLENGER
+### Model Weight Output Directory
 - During fine-tuning, CHALLENGER saves the model weights to the directory specified with -o, which in this tutorial is /FT_weights.
 
 
