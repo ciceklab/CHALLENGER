@@ -268,8 +268,6 @@ $ source challenger_FT.sh
 ---
 
 ## License
-
-
-- **[CC BY-NC-SA 2.0](https://creativecommons.org/licenses/by-nc-sa/2.0/)**
+- **[AGPL-3.0](https://web.archive.org/web/20160503003302/https://opensource.org/licenses/agpl-3.0)**
 - Copyright 2025 © CHALLENGER.
 - For commercial usage, please contact.
